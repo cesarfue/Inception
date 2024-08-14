@@ -3,11 +3,6 @@ FROM debian:bullseye
 RUN apt-get update \
 && apt-get install -y wget \ 
 php \
-php-cgi \
-php-pdo \
-php-cli \
-redis \
-php-redis \
 php-fpm \
 php-mysql \
 mariadb-client \
@@ -28,5 +23,8 @@ RUN chmod +x /usr/local/bin/wordpress.sh
 ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
 
 RUN mkdir /run/php
+WORKDIR /var/www/html/
+
+EXPOSE 9000
 
 CMD ["/usr/sbin/php-fpm7.3", "-F"]
