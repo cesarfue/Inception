@@ -10,6 +10,4 @@ wp config create --allow-root \
   --dbpass=$SQL_PASSWORD \
   --dbhost=mariadb:3306 --path='/var/www/wordpress'
 
-fi
-
 exec "$@"
