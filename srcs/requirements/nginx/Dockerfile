@@ -6,10 +6,9 @@ RUN apt-get update \
 && openssl req -x509 -nodes \
   -out /etc/nginx/ssl/bundle.crt \
   -keyout /etc/nginx/ssl/private.key \
-  -subj "/C=FR/ST=RA/L=Lyon/O=42/OU=42/CN=login.42.fr/UID=login"
+  -subj "/C=FR/ST=RA/L=Lyon/O=42/OU=42/CN=cefuente.42.fr/UID=cefuente"
 
 COPY ./conf/nginx.conf /etc/nginx/nginx.conf
-
 RUN mkdir -p /var/run/nginx
 
 EXPOSE 443

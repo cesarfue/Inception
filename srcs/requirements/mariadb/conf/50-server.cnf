@@ -1,7 +1,7 @@
 [mysqld]
-user = localhost
+user = mysql
 port = 3306
-datadir = /var/lib/mysql 
+datadir = /var/lib/mysql
 socket = /run/mysqld/mysqld/mysqld.sock 
 skip-networking = false
 bind_address = 0.0.0.0

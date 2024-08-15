@@ -3,6 +3,9 @@ all: up
 up:
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
 
+debug:
+	@docker compose -f ./srcs/docker-compose.yml up --build
+
 down:
 	@docker-compose -f ./srcs/docker-compose.yml down
 
@@ -15,11 +18,11 @@ stop:
 ps :
 	@docker ps
 
-re:
-	@docker-compose -f ./srcs/docker-compose.yml up -d --build
-
 clean:
 	@docker-compose -f ./srcs/docker-compose.yml down --volumes
 	@docker container prune -f
+
+re: clean
+	@docker-compose -f ./srcs/docker-compose.yml up -d --build
 
 .PHONY: all up down start stop ps re clean
