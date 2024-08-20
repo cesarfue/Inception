@@ -4,7 +4,7 @@
 #   echo "wordpress already downloaded"
 # else
 #
-chmod +uw /var/www/html
+# chmod +uw /var/www/html
 rm -rf *
 
 wget http://wordpress.org/latest.tar.gz

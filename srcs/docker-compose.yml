@@ -51,15 +51,15 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      #device: /home/cefuente/data/wordpress
-      device: /Users/cefue/Cursus/data/wordpress
+      device: /home/cefue/data/wordpress
+      # device: /Users/cefue/Cursus/data/wordpress
   mariadb_data:
     driver: local
     driver_opts:
       type: none
       o: bind
-      #device: /home/cefuente/data/mariadb
-      device: /Users/cefue/Cursus/data/mariadb
+      device: /home/cefue/data/mariadb
+      # device: /Users/cefue/Cursus/data/mariadb
 
 networks:
   inception:
