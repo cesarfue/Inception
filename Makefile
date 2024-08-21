@@ -1,4 +1,4 @@
-all: up
+all: debug
 
 up:
 	@docker compose -f ./srcs/docker-compose.yml up -d --build
@@ -20,9 +20,10 @@ ps :
 
 clean:
 	@docker compose -f ./srcs/docker-compose.yml down --volumes
-	@docker container prune -f
+	@docker run --rm -v /Users/cefue/Cursus/data:/data busybox sh -c "rm -rf /data/mariadb/* /data/wordpress/*"
+	@docker image prune -af
 
 re: clean
-	@docker compose -f ./srcs/docker-compose.yml up -d --build
+	@docker compose -f ./srcs/docker-compose.yml up --build
 
 .PHONY: all up down start stop ps re clean
