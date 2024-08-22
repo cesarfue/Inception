@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mysql_safe
+mysql_safe &
 
 /etc/init.d/mysql start
 
@@ -11,4 +11,5 @@ echo "CREATE DATABASE IF NOT EXISTS $SQL_DATABASE; GRANT ALL ON $SQL_DATABASE.* 
 mysql -uroot -p$SQL_ROOT_PASSWORD $SQL_DATABASE </usr/local/bin/wordpress.sql
 
 /etc/init.d/mysql stop
+
 exec "$@"
