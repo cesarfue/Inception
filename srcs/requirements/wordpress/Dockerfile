@@ -5,8 +5,7 @@ RUN apt-get update && apt-get -y install \
   php \
 	php-mysql \
 	php-fpm \
-  mariadb-client \
-  && rm -rf /var/lib/apt/lists/*
+  mariadb-client
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN chmod +x wp-cli.phar
@@ -22,8 +21,6 @@ COPY ./tools/wordpress.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/wordpress.sh
 
 WORKDIR /var/www/html/
-
-EXPOSE 9000
 
 ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
 CMD ["/usr/sbin/php-fpm7.3", "-F"]
