@@ -13,6 +13,4 @@ RUN chmod +x /usr/local/bin/mariadb.sh
 
 ENTRYPOINT ["/usr/local/bin/mariadb.sh"]
 
-EXPOSE 3306
-
 CMD ["mysqld", "--bind-address=0.0.0.0"]

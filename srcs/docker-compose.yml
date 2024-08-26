@@ -36,6 +36,7 @@ services:
       - inception
     depends_on:
       - mariadb
+      - redis
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
@@ -45,21 +46,30 @@ services:
       - wordpress:/var/www/html
     restart: always
 
+#############          BONUS
+  redis:
+    container_name: redis
+    networks:
+      - inception
+    build:
+      context: ./bonus/redis
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+
 volumes:
   wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
-       # device: /home/cefue/data/wordpress
-      device: /Users/cefue/Cursus/data/wordpress
+      device: /${HOME}/data/wordpress
   mariadb:
     driver: local
     driver_opts:
       type: none
       o: bind
-      # device: /home/cefue/data/mariadb
-      device: /Users/cefue/Cursus/data/mariadb
+      device: /${HOME}/data/mariadb
 
 networks:
   inception:
