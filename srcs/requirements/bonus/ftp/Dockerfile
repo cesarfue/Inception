@@ -1,11 +1,13 @@
 FROM debian:buster
 
 RUN apt-get update && apt-get install -y \
-vsftpd
+vsftpd && \
+rm /etc/vsftpd.conf
 
-COPY vsftpd.conf /etc/vsftpd.conf
+COPY ./conf/vsftpd.conf /etc/vsftpd.conf
 COPY ./tools/ftp.sh /usr/local/bin/ftp.sh
+RUN chmod +x /usr/local/bin/ftp.sh
 
 ENTRYPOINT ["/usr/local/bin/ftp.sh"]
 
-CMD ["vsftpd"]
+CMD ["vsftpd", "/etc/vsftpd.conf"]

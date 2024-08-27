@@ -68,12 +68,15 @@ services:
       - mariadb
       - redis
     build:
-      context: ./requirements/bonus/redis
+      context: ./requirements/bonus/ftp
       dockerfile: Dockerfile
     env_file:
       - .env
     volumes:
       - wordpress:/var/www/html
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
     restart: always
 
 volumes:
@@ -92,5 +95,5 @@ volumes:
 
 networks:
   inception:
-    name: netincep
+    name: incepnet
     driver: bridge
