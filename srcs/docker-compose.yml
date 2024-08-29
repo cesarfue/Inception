@@ -79,6 +79,17 @@ services:
       - "30000-30009:30000-30009"
     restart: always
 
+  showcase:
+    container_name: showcase
+    networks:
+      - inception
+    build:
+      context: ./requirements/bonus/showcase
+      dockerfile: Dockerfile
+    ports:
+      - "40000:40000"
+    restart: always
+
 volumes:
   wordpress:
     driver: local
