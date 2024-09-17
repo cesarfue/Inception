@@ -20,6 +20,12 @@ if [ ! -f ./wp-config.php ]; then
     --path=/var/www/html/ \
     --allow-root
 
+  wp user create $WP_ADMIN_USER $WP_ADMIN_EMAIL \
+    --user_pass=$WP_ADMIN_PASSWORD \
+    --role=administrator \
+    --path=/var/www/localhost/ \
+    --allow-root
+
   wp config set WP_REDIS_HOST redis --allow-root
   wp config set WP_REDIS_PORT 6379 --raw --allow-root
   wp config set WP_CACHE_KEY_SALT $DOMAIN_NAME --allow-root

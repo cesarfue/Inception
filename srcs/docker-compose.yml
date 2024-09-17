@@ -108,19 +108,19 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /${HOME}/data/wordpress
+      device: /home/cefuente/data/wordpress
   adminer:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /${HOME}/data/adminer
+      device: /home/cefuente/data/adminer
   mariadb:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /${HOME}/data/mariadb
+      device: /home/cefuente/data/mariadb
 
 networks:
   incepnet:
