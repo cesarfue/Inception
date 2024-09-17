@@ -14,15 +14,14 @@ if [ ! -f ./wp-config.php ]; then
   wp core install \
     --url=$WP_URL \
     --title=$WP_TITLE \
-    --admin_user=$WP_SUPERADMIN_USER \
-    --admin_email=$WP_SUPERADMIN_EMAIL \
-    --admin_password=$WP_SUPERADMIN_PASSWORD \
+    --admin_user=$WP_ADMIN_USER \
+    --admin_email=$WP_ADMIN_EMAIL \
+    --admin_password=$WP_ADMIN_PASS \
     --path=/var/www/html/ \
     --allow-root
 
-  wp user create $WP_ADMIN_USER $WP_ADMIN_EMAIL \
-    --user_pass=$WP_ADMIN_PASSWORD \
-    --role=administrator \
+  wp user create $WP_USER $WP_EMAIL \
+    --user_pass=$WP_PASS \
     --path=/var/www/localhost/ \
     --allow-root
 
