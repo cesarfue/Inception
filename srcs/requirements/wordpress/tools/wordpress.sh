@@ -22,7 +22,7 @@ if [ ! -f ./wp-config.php ]; then
 
   wp user create $WP_USER $WP_EMAIL \
     --user_pass=$WP_PASS \
-    --path=/var/www/localhost/ \
+    --path=/var/www/html/ \
     --allow-root
 
   wp config set WP_REDIS_HOST redis --allow-root
