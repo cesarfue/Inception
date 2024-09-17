@@ -20,7 +20,7 @@ ps :
 
 clean:
 	@docker compose -f ./srcs/docker-compose.yml down --volumes
-	@docker run --rm -v /${HOME}/data:/data busybox sh -c "rm -rf /data/mariadb/* /data/wordpress/*"
+	@docker run --rm -v /home/cefuente/data:/data busybox sh -c "rm -rf /data/mariadb/* /data/wordpress/* /data/adminer/*"
 	@docker image prune -af
 
 re: clean
